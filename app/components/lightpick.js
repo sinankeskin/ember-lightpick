@@ -1,0 +1,1 @@
+export { default } from 'ember-lightpick/components/lightpick';
