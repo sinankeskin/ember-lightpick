@@ -82,7 +82,16 @@ export default TextField.extend({
 
   _setupLightpick() {
     this.set('picker', new Lightpick(this.get('_options')));
+    this._setMomentLocale();
     this._setLightpickDate();
+  },
+
+  _setMomentLocale() {
+    const options = this.get('_options');
+
+    if (isPresent(options.lang) && options.lang !== 'auto') {
+      moment.locale(options.lang);
+    }
   },
 
   _setLightpickDate() {
@@ -110,10 +119,7 @@ export default TextField.extend({
   },
 
   _updateOptions() {
-    if (this.get('lang') !== 'auto') {
-      moment.locale(this.get('lang'));
-    }
-
+    this._setMomentLocale();
     this.get('picker').reloadOptions(this.get('_options'));
   }
 });
