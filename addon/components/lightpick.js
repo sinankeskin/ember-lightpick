@@ -1,8 +1,10 @@
 /* globals Lightpick */
 import TextField from '@ember/component/text-field';
+import { getOwner } from '@ember/application';
 import { assign } from '@ember/polyfills';
 import { computed } from '@ember/object';
 import { isPresent } from '@ember/utils';
+import moment from 'moment';
 
 export default TextField.extend({
   classNames: ['ember-lightpick-input'],
@@ -22,20 +24,32 @@ export default TextField.extend({
     'aria-required'
   ],
 
-  _options: computed('attrs', {
-    get() {
-      const options = this._defaultOptions();
-      // eslint-disable-next-line ember/no-attrs-in-components
-      assign(options, this.getProperties(Object.keys(this.attrs)));
-
-      return options;
-    }
-  }),
-
+  field: null,
   _onSelect() {},
   _onOpen() {},
   _onClose() {},
   _onError() {},
+
+  _config: computed({
+    get() {
+      const config =
+        getOwner(this).resolveRegistration('config:environment') || {};
+
+      return config['ember-lightpick'] || {};
+    }
+  }),
+
+  _options: computed('_config', 'attrs', {
+    get() {
+      const options = this._defaultOptions();
+
+      assign(options, this._config);
+      // eslint-disable-next-line ember/no-attrs-in-components
+      assign(options, this.attrs);
+
+      return options;
+    }
+  }),
 
   didInsertElement() {
     this._super(...arguments);
@@ -96,6 +110,10 @@ export default TextField.extend({
   },
 
   _updateOptions() {
+    if (this.get('lang') !== 'auto') {
+      moment.locale(this.get('lang'));
+    }
+
     this.get('picker').reloadOptions(this.get('_options'));
   }
 });

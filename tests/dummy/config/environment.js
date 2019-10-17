@@ -47,5 +47,38 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
   }
 
+  ENV['moment'] = {
+    // To cherry-pick specific locale support into your application.
+    // Full list of locales: https://github.com/moment/moment/tree/master/locale
+    includeLocales: ['tr']
+  };
+
+  ENV['ember-lightpick'] = {
+    lang: 'tr',
+    format: 'DD.MM.YYYY',
+    separator: ' - ',
+    dropdowns: {
+      years: {
+        min: 2018,
+        max: 2019
+      },
+      months: false
+    },
+    locale: {
+      buttons: {
+        prev: '&leftarrow;',
+        next: '&rightarrow;',
+        close: '&times;',
+        reset: 'Reset',
+        apply: 'Apply'
+      },
+      tooltip: {
+        one: 'gün',
+        other: 'gün'
+      },
+      tooltipOnDisabled: null
+    }
+  };
+
   return ENV;
 };

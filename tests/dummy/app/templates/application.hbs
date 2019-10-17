@@ -1,9 +1,10 @@
-<h2 id="title">
-  Welcome to Ember
-</h2>
 <Lightpick
-  @singleDate={{false}}
-  @format="DD.MM.YYYY"
-  @lang={{this.lang}}
+  @singleDate={{true}}
+  @date="17.10.2019"
   @onSelect={{action "onSelect"}}
+  @numberOfMonths={{3}}
+  @lang={{this.lang}}
+  @dropdowns={{hash years=(hash min=2012 max=null) months=true}}
 />
+{{!-- @numberOfMonths={{3}} --}}
+{{!-- @dropdowns={{hash years=(hash min=2018 max= null) months=true}} --}}
