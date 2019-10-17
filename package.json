@@ -1,13 +1,18 @@
 {
   "name": "ember-lightpick",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Ember addon for Lightpick date range picker library.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "lightpick",
+    "ember-lightpick",
+    "datepicker",
+    "datetime picker",
+    "daterange picker"
   ],
-  "repository": "",
+  "repository": "https://github.com/sinankeskin/ember-lightpick",
   "license": "MIT",
-  "author": "",
+  "author": "Sinan Keskin <sinan@kesk.in> (https://kesk.in)",
   "directories": {
     "doc": "doc",
     "test": "tests"

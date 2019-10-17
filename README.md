@@ -1,7 +1,7 @@
 ember-lightpick
 ==============================================================================
 
-[Short description of the addon.]
+Ember addon for [Lightpick](https://wakirin.github.io/Lightpick/) date range picker library.
 
 
 Compatibility
@@ -23,7 +23,18 @@ ember install ember-lightpick
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+I'm testing. You can call it alpha. Detailed usage and updated readme will be come later.
+
+``` handlebars
+<Lightpick
+  @singleDate={{true}}
+  @date="17.10.2019"
+  @onSelect={{action "onSelect"}}
+  @numberOfMonths={{3}}
+  @lang={{this.lang}}
+  @dropdowns={{hash years=(hash min=2012 max=null) months=true}}
+/>
+```
 
 
 Contributing
