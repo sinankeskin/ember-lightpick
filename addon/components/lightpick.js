@@ -133,22 +133,24 @@ export default TextField.extend({
   },
 
   _setLightpickDate() {
-    if (isPresent(this.get('singleDate')) && this.get('singleDate')) {
-      const date = this.get('date');
+    if (isPresent(this.get('singleDate'))) {
+      if (this.get('singleDate')) {
+        const date = this.get('date');
 
-      if (isPresent(date)) {
-        this.get('picker').setDate(date);
-      }
-    } else {
-      const startDate = this.get('startDate');
+        if (isPresent(date)) {
+          this.get('picker').setDate(date);
+        }
+      } else {
+        const startDate = this.get('startDate');
 
-      if (isPresent(startDate)) {
-        const endDate = this.get('endDate');
+        if (isPresent(startDate)) {
+          const endDate = this.get('endDate');
 
-        if (isPresent(endDate)) {
-          this.get('picker').setDateRange(startDate, endDate);
-        } else {
-          this.get('picker').setDateRange(startDate, null);
+          if (isPresent(endDate)) {
+            this.get('picker').setDateRange(startDate, endDate);
+          } else {
+            this.get('picker').setDateRange(startDate, null);
+          }
         }
       }
     }
