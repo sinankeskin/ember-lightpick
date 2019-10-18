@@ -94,6 +94,17 @@ ENV['ember-lightpick'] = {
   }
 };
 ```
+ember-cli-moment-shim included the project therefore if you want to include another locale for moment
+you should add to environment like below. English is automatically included.
+If your lang parameter set to your locale all dates will return in this locale settings.
+
+```javascript
+ENV['moment'] = {
+    // To cherry-pick specific locale support into your application.
+    // Full list of locales: https://github.com/moment/moment/tree/master/locale
+    includeLocales: ['tr']
+  };
+```
 
 Default configuration
 
