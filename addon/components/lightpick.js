@@ -127,14 +127,18 @@ export default TextField.extend({
   },
 
   _setMomentLocale() {
-    if (isPresent(this.get('lang')) && this.get('lang') !== 'auto') {
-      moment.locale(this.get('lang'));
+    const lang = this.get('lang');
+
+    if (isPresent(lang) && lang !== 'auto') {
+      moment.locale(lang);
     }
   },
 
   _setLightpickDate() {
-    if (isPresent(this.get('singleDate'))) {
-      if (this.get('singleDate')) {
+    const singleDate = this.get('singleDate');
+
+    if (isPresent(singleDate)) {
+      if (singleDate) {
         const date = this.get('date');
 
         if (isPresent(date)) {
