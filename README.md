@@ -26,10 +26,6 @@ ember install ember-lightpick
 Usage
 ------------------------------------------------------------------------------
 
-> This library has issues with moment format. Ex: minDate and maxDate formats always should be *MM/DD/YYYY* format.
-> I sent a [PR](https://github.com/wakirin/Lightpick/pull/92) for this issue but then i realize disableDates also has this issue.
-> In short, even if your format set the differ you should use *MM/DD/YYYY* format everywhere till author fix this.
-
 You can change all global configuration settings via `config/environment.js` file.
 
 Please check [Lightpick](https://wakirin.github.io/Lightpick/) site for more configuration details.
