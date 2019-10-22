@@ -1,11 +1,15 @@
 # Changelog
 All notable changes will be documented in this file.
 
+[0.0.10] - 2019-10-22
+* New options `onMonthsChange` and `onYearsChange` - Events fire when months or years select changed.
+    `onMonthsChange` throws zero based number of month. Ex: January = 0
+    `onYearsChange` throws year. Ex: 2019
+
 [0.0.9] - 22.10.2019
 * `date` parameter was added by me. Revert back to TextField value parameter.
 * New option `weekdayStyle` - Weekday display style added.
     Possible values are 'long', 'short' or 'narrow'.
-    Implementation of #91
 
 [0.0.1] - 17.10.2019
 * Published on Github

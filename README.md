@@ -161,7 +161,9 @@ All default configuration parameters
   @onSelect={{action "onSelect"}},
   @onOpen={{action "onOpen"}},
   @onClose={{action "onClose"}},
-  @onError={{action "onError"}}
+  @onError={{action "onError"}},
+  @onMonthsChange={{action "onMonthsChange"}},
+  @onYearsChange={{action "onYearsChange"}}
 />
 ```
 

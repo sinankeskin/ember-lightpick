@@ -10,9 +10,15 @@ export default Controller.extend({
   },
   actions: {
     onSelect(startDate) {
-      console.log(startDate);
       this.set('lang', 'tr');
       this.set('format', 'DD.MM.YYYY');
+      alert(startDate);
+    },
+    onMonthsChange(month) {
+      alert(month);
+    },
+    onYearsChange(year) {
+      alert(year);
     }
   }
 });

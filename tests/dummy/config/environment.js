@@ -60,9 +60,9 @@ module.exports = function(environment) {
     dropdowns: {
       years: {
         min: 2018,
-        max: 2019
+        max: 2020
       },
-      months: false
+      months: true
     },
     locale: {
       buttons: {

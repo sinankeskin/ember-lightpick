@@ -106,7 +106,9 @@ export default TextField.extend({
       'onSelect',
       'onOpen',
       'onClose ',
-      'onError'
+      'onError',
+      'onMonthsChange',
+      'onYearsChange'
     ];
 
     const options = {};
