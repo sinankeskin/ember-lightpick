@@ -83,7 +83,6 @@ export default TextField.extend({
       'singleDate',
       'autoclose',
       'repick',
-      'date', // to add value to input tag
       'startDate',
       'endDate',
       'minDate',
@@ -101,6 +100,7 @@ export default TextField.extend({
       'orientation',
       'disableWeekends',
       'inline',
+      'weekdayStyle',
       'dropdowns',
       'locale',
       'onSelect',
@@ -139,10 +139,10 @@ export default TextField.extend({
 
     if (isPresent(singleDate)) {
       if (singleDate) {
-        const date = this.get('date');
+        const value = this.get('value');
 
-        if (isPresent(date)) {
-          this.get('picker').setDate(date);
+        if (isPresent(value)) {
+          this.get('picker').setDate(value);
         }
       } else {
         const startDate = this.get('startDate');

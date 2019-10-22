@@ -63,6 +63,7 @@ ENV['ember-lightpick'] = {
   orientation: 'auto',
   disableWeekends: false,
   inline: false,
+  weekdayStyle: 'short',
   dropdowns: {
     years: {
       min: 1900,
@@ -85,7 +86,6 @@ ENV['ember-lightpick'] = {
     tooltipOnDisabled: null,
     pluralize: function(i, locale){
       if (typeof i === "string") i = parseInt(i, 10);
-
       if (i === 1 && 'one' in locale) return locale.one;
       if ('other' in locale) return locale.other;
 
@@ -114,8 +114,8 @@ Default configuration
 
 All default configuration parameters
 
-> If singleDate is true you can set a value with date parameter.
-> If singleDate is false you can set start date and end date with startDate and endDate parameters.
+> If singleDate is true you can set a value with @value parameter.
+> If singleDate is false you can set start date and end date with @startDate and @endDate parameters.
 
 ``` handlebars
 <Lightpick
@@ -130,7 +130,7 @@ All default configuration parameters
   @singleDate={{true}},
   @autoclose={{true}},
   @repick={{false}},
-  @date={{null}},
+  @value={{null}},
   @startDate={{null}},
   @endDate={{null}},
   @minDate={{null}},
@@ -148,6 +148,7 @@ All default configuration parameters
   @orientation={{'auto'}},
   @disableWeekends={{false}},
   @inline={{false}},
+  @weekdayStyle='short',
   @dropdowns={{hash years=(hash min=1900 max= null) months=true}},
   @locale={{hash buttons=(hash prev='&leftarrow;'
                                 next='&rightarrow;'
