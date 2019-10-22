@@ -1,6 +1,10 @@
 # Changelog
 All notable changes will be documented in this file.
 
+[1.4.0] - 2019-10-22
+* Fix minDate, maxDate, disableDates and value (gotoDate) of input now respects format parameter.
+* Versions synchronized with Lightpick.
+
 [0.0.10] - 2019-10-22
 * New options `onMonthsChange` and `onYearsChange` - Events fire when months or years select changed.
     `onMonthsChange` throws zero based number of month. Ex: January = 0
