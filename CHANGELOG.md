@@ -1,6 +1,9 @@
 # Changelog
 All notable changes will be documented in this file.
 
+[1.0.3] - 2019-11-01
+* Fix reload options
+
 [1.0.0] - 2019-10-22
 * Fix minDate, maxDate, disableDates and value (gotoDate) of input now respects format parameter.
 * Switch to 1.x release.
