@@ -1,6 +1,6 @@
 {
   "name": "ember-lightpick",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Ember addon for Lightpick date range picker library.",
   "keywords": [
     "ember-addon",
