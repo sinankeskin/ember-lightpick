@@ -7,11 +7,7 @@ const path = require('path');
 module.exports = {
   description: 'Adds style imports for the ember-lightpick addon.',
 
-  normalizeEntityName() {
-    // this prevents an error when the entityName is
-    // not specified (since that doesn't actually matter
-    // to us
-  },
+  normalizeEntityName() {},
 
   afterInstall() {
     const dependencies = this.project.dependencies();

@@ -11,7 +11,7 @@ module.exports = {
     let hasSass = !!app.registry.availablePlugins['ember-cli-sass'];
 
     if (!hasSass) {
-      app.import('vendor/lightpick.css');
+      app.import('vendor/ember-lightpick.css');
     }
   }
 };
