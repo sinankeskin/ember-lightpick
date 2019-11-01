@@ -21,6 +21,7 @@
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
+    "compile-css": "node ./compile-css.js",
     "start": "ember serve",
     "test": "ember test",
     "test:all": "ember try:each"
@@ -54,6 +55,7 @@
     "eslint-plugin-ember": "^7.3.0",
     "eslint-plugin-node": "^10.0.0",
     "loader.js": "^4.7.0",
+    "node-sass": "^4.13.0",
     "qunit-dom": "^0.9.1"
   },
   "engines": {

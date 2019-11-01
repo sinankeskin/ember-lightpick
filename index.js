@@ -7,6 +7,11 @@ module.exports = {
     this._super.included.apply(this, arguments);
 
     app.import('node_modules/lightpick/lightpick.js');
-    app.import('node_modules/lightpick/css/lightpick.css');
+
+    let hasSass = !!app.registry.availablePlugins['ember-cli-sass'];
+
+    if (!hasSass) {
+      app.import('vendor/lightpick.css');
+    }
   }
 };
