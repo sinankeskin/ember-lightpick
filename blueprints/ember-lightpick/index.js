@@ -1,56 +1,43 @@
+/* eslint-env node */
 'use strict';
 
 const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-  description: '',
+  description: 'Adds style imports for the ember-lightpick addon.',
 
-  beforeInstall() {
-    let preprocessor = 'none';
-
-    let dependencies = this.project.dependencies();
-
-    if ('ember-cli-sass' in dependencies) {
-      preprocessor = 'sass';
-    }
-
-    this.preprocessor = preprocessor;
+  normalizeEntityName() {
+    // this prevents an error when the entityName is
+    // not specified (since that doesn't actually matter
+    // to us
   },
 
   afterInstall() {
-    return this.addAddonsToProject({ packages: ['ember-lightpick'] }).then(() =>
-      this.addPreprocessorStyleImport()
-    );
-  },
+    const dependencies = this.project.dependencies();
 
-  addPreprocessorStyleImport() {
-    let preprocessor = this.preprocessor;
+    if ('ember-cli-sass' in dependencies) {
+      const importStatement = '\n@import "ember-lightpick";\n';
 
-    if (preprocessor === 'none') {
-      return;
-    }
+      const extension = 'scss';
 
-    let importStatement = '\n@import "ember-lightpick";\n';
+      const stylePath = path.join('app', 'styles');
 
-    let extension = preprocessor === 'sass' ? 'scss' : '';
+      const file = path.join(stylePath, `app.${extension}`);
 
-    let stylePath = path.join('app', 'styles');
+      if (!fs.existsSync(stylePath)) {
+        fs.mkdirSync(stylePath);
+      }
 
-    let file = path.join(stylePath, `app.${extension}`);
+      if (fs.existsSync(file)) {
+        this.ui.writeLine(`Added import statement to ${file}`);
 
-    if (!fs.existsSync(stylePath)) {
-      fs.mkdirSync(stylePath);
-    }
+        return this.insertIntoFile(file, importStatement);
+      } else {
+        this.ui.writeLine(`Created ${file}`);
 
-    if (fs.existsSync(file)) {
-      this.ui.writeLine(`Added import statement to ${file}`);
-
-      return this.insertIntoFile(file, importStatement);
-    } else {
-      this.ui.writeLine(`Created ${file}`);
-
-      return fs.writeFile(file, importStatement);
+        return fs.writeFile(file, importStatement);
+      }
     }
   }
 };
