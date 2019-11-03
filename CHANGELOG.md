@@ -1,6 +1,9 @@
 # Changelog
 All notable changes will be documented in this file.
 
+[1.0.4] - 2019-11-02
+* Support SCSS file
+
 [1.0.3] - 2019-11-01
 * Fix reload options
 
