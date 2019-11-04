@@ -104,6 +104,8 @@ export default TextField.extend({
       'dropdowns',
       'locale',
       'onSelect',
+      'onSelectStart',
+      'onSelectEnd',
       'onOpen',
       'onClose ',
       'onError',

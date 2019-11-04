@@ -30,7 +30,7 @@
     "ember-cli-babel": "^7.11.1",
     "ember-cli-htmlbars": "^4.0.8",
     "ember-cli-moment-shim": "^3.7.1",
-    "lightpick": "^1.4.4"
+    "lightpick": "^1.4.5"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.1.0",

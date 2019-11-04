@@ -1,6 +1,9 @@
 # Changelog
 All notable changes will be documented in this file.
 
+[1.0.5] - 2019-11-04
+* * Added onSelectStart and onSelectEnd helper functions
+
 [1.0.4] - 2019-11-02
 * Support SCSS file
 

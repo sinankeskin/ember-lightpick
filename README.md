@@ -167,6 +167,8 @@ All default configuration parameters
       tooltipOnDisabled=null
   }},
   @onSelect={{action "onSelect"}},
+  @onSelectStart={{action "onSelectStart"}},
+  @onSelectEnd={{action "onSelectEnd"}},
   @onOpen={{action "onOpen"}},
   @onClose={{action "onClose"}},
   @onError={{action "onError"}},
