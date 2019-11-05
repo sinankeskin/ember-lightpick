@@ -1,0 +1,1 @@
+{"jsonapi":{"version":"1.0"},"data":{"type":"project","id":"ember-lightpick","attributes":{"name":"ember-lightpick","version":"1.0.6","navigationIndex":[]},"relationships":{"modules":{"data":[]}}}}
