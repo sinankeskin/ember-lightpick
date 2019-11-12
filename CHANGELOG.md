@@ -1,7 +1,7 @@
 # Changelog
 All notable changes will be documented in this file.
 
-[1.1.0] - 2019-11-04
+[1.1.0] - 2019-11-12
 * Upgrade to Lightpick 1.5.0
 * Writing documents started
 
