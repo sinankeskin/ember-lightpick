@@ -43,12 +43,12 @@ You can change all global configuration settings via `config/environment.js` fil
 Please check [Lightpick](https://wakirin.github.io/Lightpick/) site for more configuration details.
 
 ```javascript
-ENV['ember-lightpick'] = {
+ENV["ember-lightpick"] = {
   firstDay: 1,
-  parentEl: 'body',
-  lang: 'auto',
-  format: 'DD/MM/YYYY',
-  separator: ' - ',
+  parentEl: "body",
+  lang: "auto",
+  format: "DD/MM/YYYY",
+  separator: " - ",
   numberOfMonths: 1,
   numberOfColumns: 2,
   singleDate: true,
@@ -68,10 +68,10 @@ ENV['ember-lightpick'] = {
   footer: false,
   disabledDatesInRange: true,
   tooltipNights: false,
-  orientation: 'auto',
+  orientation: "auto",
   disableWeekends: false,
   inline: false,
-  weekdayStyle: 'short',
+  weekdayStyle: "short",
   dropdowns: {
     years: {
       min: 1900,
@@ -81,23 +81,23 @@ ENV['ember-lightpick'] = {
   },
   locale: {
     buttons: {
-      prev: '&leftarrow;',
-      next: '&rightarrow;',
-      close: '&times;',
-      reset: 'Reset',
-      apply: 'Apply',
+      prev: "&leftarrow;",
+      next: "&rightarrow;",
+      close: "&times;",
+      reset: "Reset",
+      apply: "Apply",
     },
     tooltip: {
-      one: 'day',
-      other: 'days',
+      one: "day",
+      other: "days",
     },
     tooltipOnDisabled: null,
     pluralize: function(i, locale){
       if (typeof i === "string") i = parseInt(i, 10);
-      if (i === 1 && 'one' in locale) return locale.one;
-      if ('other' in locale) return locale.other;
+      if (i === 1 && "one" in locale) return locale.one;
+      if ("other" in locale) return locale.other;
 
-      return '';
+      return "";
     },
   }
 };
@@ -129,10 +129,10 @@ All default configuration parameters
 <Lightpick
   @secondField={{null}},
   @firstDay={{1}},
-  @parentEl='body',
-  @lang='auto',
-  @format='DD/MM/YYYY',
-  @separator=' - ',
+  @parentEl="body",
+  @lang="auto",
+  @format="DD/MM/YYYY",
+  @separator=" - ",
   @numberOfMonths={{1}},
   @numberOfColumns={{2}},
   @singleDate={{true}},
@@ -153,17 +153,17 @@ All default configuration parameters
   @footer={{false}},
   @disabledDatesInRange={{true}},
   @tooltipNights={{false}},
-  @orientation={{'auto'}},
+  @orientation={{"auto"}},
   @disableWeekends={{false}},
   @inline={{false}},
-  @weekdayStyle='short',
+  @weekdayStyle="short",
   @dropdowns={{hash years=(hash min=1900 max= null) months=true}},
-  @locale={{hash buttons=(hash prev='&leftarrow;'
-                                next='&rightarrow;'
-                                close='&times;'
-                                reset='Reset'
-                                apply='Apply')
-      tooltip=(hash one='day' other='days')
+  @locale={{hash buttons=(hash prev="&leftarrow;"
+                                next="&rightarrow;"
+                                close="&times;"
+                                reset="Reset"
+                                apply="Apply")
+      tooltip=(hash one="day" other="days")
       tooltipOnDisabled=null
   }},
   @onSelect={{action "onSelect"}},

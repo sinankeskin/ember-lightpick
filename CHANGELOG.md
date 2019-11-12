@@ -1,8 +1,12 @@
 # Changelog
 All notable changes will be documented in this file.
 
+[1.1.0] - 2019-11-04
+* Upgrade to Lightpick 1.5.0
+* Writing documents started
+
 [1.0.6] - 2019-11-04
-* * Added onSelectStart and onSelectEnd helper functions
+* Added onSelectStart and onSelectEnd helper functions
 
 [1.0.4] - 2019-11-02
 * Support SCSS file
