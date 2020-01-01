@@ -10,7 +10,7 @@ Ember addon for [Lightpick](https://wakirin.github.io/Lightpick/) date range pic
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.4 or above
+* Ember.js v3.8 or above
 * Ember CLI v2.13 or above
 * Node.js v8 or above
 
