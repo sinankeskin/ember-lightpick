@@ -1,10 +1,11 @@
 /* globals Lightpick */
-import TextField from '@ember/component/text-field';
 import { getOwner } from '@ember/application';
 import { assign } from '@ember/polyfills';
 import { computed } from '@ember/object';
 import { isPresent } from '@ember/utils';
+import { classNames } from '@ember-decorators/component';
 import moment from 'moment';
+import TextField from '@ember/component/text-field';
 
 /**
  * Lightpick component
@@ -23,64 +24,38 @@ import moment from 'moment';
  * @class Lightpick
  * @public
  */
-export default TextField.extend({
-  classNames: ['ember-lightpick-input'],
-  /**
-   * ARIA bindings for a textbox.
-   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/textbox_role
-   * @see https://labs.levelaccess.com/index.php/Category:ARIA
-   * @argument attributeBindings
-   */
-  attributeBindings: [
-    'aria-activedescendent',
-    'aria-autocomplete',
-    'aria-describedby',
-    'aria-labelledby',
-    'aria-multiline',
-    'aria-placeholder',
-    'aria-readonly',
-    'aria-required'
-  ],
+@classNames('ember-lightpick-input')
+export default class LightpickComponent extends TextField {
+  field = null;
 
-  field: null,
+  @computed
+  get _config() {
+    const config = getOwner(this).resolveRegistration('config:environment') || {};
 
-  _config: computed({
-    get() {
-      const config =
-        getOwner(this).resolveRegistration('config:environment') || {};
+    return config['ember-lightpick'] || {};
+  }
 
-      return config['ember-lightpick'] || {};
-    }
-  }),
+  @computed('_config', 'attrs')
+  get _options() {
+    const options = this._defaultOptions();
 
-  _options: computed('_config', 'attrs', {
-    get() {
-      const options = this._defaultOptions();
+    assign(options, this._config, this._componentOptions());
 
-      assign(options, this._config, this._componentOptions());
+    return options;
+  }
 
-      return options;
-    }
-  }),
-
-  didInsertElement() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
 
     this.set('field', this.element);
     this._setupLightpick();
-  },
+  }
 
-  didUpdateAttrs() {
-    this._super(...arguments);
-
-    this._updateOptions();
-  },
-
-  willDestroyElement() {
-    this._super(...arguments);
+  willDestroy() {
+    super(...arguments);
 
     this.get('picker').destroy();
-  },
+  }
 
   /**
    * @argument field
@@ -90,7 +65,7 @@ export default TextField.extend({
     return {
       field: this.get('field')
     };
-  },
+  }
 
   /**
    * @argument secondField
@@ -287,7 +262,6 @@ export default TextField.extend({
    * @type Function
    */
 
-
   _componentOptions() {
     const defaults = [
       'secondField',
@@ -340,13 +314,13 @@ export default TextField.extend({
     });
 
     return options;
-  },
+  }
 
   _setupLightpick() {
     this.set('picker', new Lightpick(this.get('_options')));
     this._setMomentLocale();
     this._setLightpickDate();
-  },
+  }
 
   _setMomentLocale() {
     const lang = this.get('lang');
@@ -354,7 +328,7 @@ export default TextField.extend({
     if (isPresent(lang) && lang !== 'auto') {
       moment.locale(lang);
     }
-  },
+  }
 
   _setLightpickDate() {
     const singleDate = this.get('singleDate');
@@ -380,10 +354,10 @@ export default TextField.extend({
         }
       }
     }
-  },
+  }
 
   _updateOptions() {
     this._setMomentLocale();
     this.get('picker').reloadOptions(this.get('_options'));
   }
-});
+}
