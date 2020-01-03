@@ -44,17 +44,6 @@ export default class LightpickComponent extends TextField {
     return options;
   }
 
-  constructor() {
-    super(...arguments);
-
-    this.set('field', this.element);
-    this._setupLightpick();
-  }
-
-  willDestroy() {
-    this.get('picker').destroy();
-  }
-
   /**
    * @argument field
    * @type HtmlElement
@@ -314,6 +303,11 @@ export default class LightpickComponent extends TextField {
     return options;
   }
 
+  _initializeOptions() {
+    this.set('field', this.element);
+    this._setupLightpick();
+  }
+
   _setupLightpick() {
     this.set('picker', new Lightpick(this.get('_options')));
     this._setMomentLocale();
@@ -357,5 +351,9 @@ export default class LightpickComponent extends TextField {
   _updateOptions() {
     this._setMomentLocale();
     this.get('picker').reloadOptions(this.get('_options'));
+  }
+
+  _destroyOptions() {
+    this.get('picker').destroy();
   }
 }
