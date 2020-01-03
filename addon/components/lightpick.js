@@ -52,8 +52,6 @@ export default class LightpickComponent extends TextField {
   }
 
   willDestroy() {
-    super(...arguments);
-
     this.get('picker').destroy();
   }
 
