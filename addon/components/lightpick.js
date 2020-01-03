@@ -1,7 +1,7 @@
 /* globals Lightpick */
 import { getOwner } from '@ember/application';
 import { assign } from '@ember/polyfills';
-import { computed } from '@ember/object';
+import { computed, get } from '@ember/object';
 import { isPresent } from '@ember/utils';
 import { classNames } from '@ember-decorators/component';
 import moment from 'moment';
@@ -50,7 +50,7 @@ export default class LightpickComponent extends TextField {
    */
   _defaultOptions() {
     return {
-      field: this.get('field')
+      field: this.field
     };
   }
 
@@ -295,8 +295,8 @@ export default class LightpickComponent extends TextField {
     const options = {};
 
     defaults.forEach(option => {
-      if (isPresent(this.get(option))) {
-        options[option] = this.get(option);
+      if (isPresent(get(this, option))) {
+        options[option] = get(this, option);
       }
     });
 
@@ -304,18 +304,18 @@ export default class LightpickComponent extends TextField {
   }
 
   _initializeOptions() {
-    this.set('field', this.element);
+    this.field = this.element;
     this._setupLightpick();
   }
 
   _setupLightpick() {
-    this.set('picker', new Lightpick(this.get('_options')));
+    this.picker = new Lightpick(this._options);
     this._setMomentLocale();
     this._setLightpickDate();
   }
 
   _setMomentLocale() {
-    const lang = this.get('lang');
+    const lang = get(this, 'lang');
 
     if (isPresent(lang) && lang !== 'auto') {
       moment.locale(lang);
@@ -323,25 +323,25 @@ export default class LightpickComponent extends TextField {
   }
 
   _setLightpickDate() {
-    const singleDate = this.get('singleDate');
+    const singleDate = get(this, 'singleDate');
 
     if (isPresent(singleDate)) {
       if (singleDate) {
-        const value = this.get('value');
+        const value = get(this, 'value');
 
         if (isPresent(value)) {
-          this.get('picker').setDate(value);
+          this.picker.setDate(value);
         }
       } else {
-        const startDate = this.get('startDate');
+        const startDate = get(this, 'startDate');
 
         if (isPresent(startDate)) {
-          const endDate = this.get('endDate');
+          const endDate = get(this, 'endDate');
 
           if (isPresent(endDate)) {
-            this.get('picker').setDateRange(startDate, endDate);
+            this.picker.setDateRange(startDate, endDate);
           } else {
-            this.get('picker').setDateRange(startDate, null);
+            this.picker.setDateRange(startDate, null);
           }
         }
       }
@@ -350,10 +350,10 @@ export default class LightpickComponent extends TextField {
 
   _updateOptions() {
     this._setMomentLocale();
-    this.get('picker').reloadOptions(this.get('_options'));
+    this.picker.reloadOptions(this._options);
   }
 
   _destroyOptions() {
-    this.get('picker').destroy();
+    this.picker.destroy();
   }
 }
