@@ -306,6 +306,18 @@ export default class LightpickComponent extends Component {
     this._setupLightpick();
   }
 
+  @action
+  _updateOptions() {
+    this._setMomentLocale();
+
+    this.picker.reloadOptions(this._options);
+  }
+
+  @action
+  _destroyOptions() {
+    this.picker.destroy();
+  }
+
   _setupLightpick() {
     this.picker = new Lightpick(this._options);
 
@@ -345,17 +357,5 @@ export default class LightpickComponent extends Component {
         }
       }
     }
-  }
-
-  @action
-  _updateOptions() {
-    this._setMomentLocale();
-
-    this.picker.reloadOptions(this._options);
-  }
-
-  @action
-  _destroyOptions() {
-    this.picker.destroy();
   }
 }
