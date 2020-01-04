@@ -1,3 +1,8 @@
-<div {{did-insert this._initializeOptions}} {{did-update this._updateOptions}} {{will-destroy this._destroyOptions}}>
-  {{yield}}
-</div>
+<input
+  type="text"
+  class="ember-lightpick-input"
+  ...attributes
+  {{did-insert this._initializeOptions}}
+  {{did-update this._updateOptions}}
+  {{will-destroy this._destroyOptions}}
+/>

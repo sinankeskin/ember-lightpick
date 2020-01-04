@@ -1,11 +1,10 @@
 /* globals Lightpick */
 import { getOwner } from '@ember/application';
 import { assign } from '@ember/polyfills';
-import { computed, get } from '@ember/object';
+import { action, computed, get } from '@ember/object';
 import { isPresent } from '@ember/utils';
-import { classNames } from '@ember-decorators/component';
 import moment from 'moment';
-import TextField from '@ember/component/text-field';
+import Component from '@glimmer/component';
 
 /**
  * Lightpick component
@@ -24,10 +23,7 @@ import TextField from '@ember/component/text-field';
  * @class Lightpick
  * @public
  */
-@classNames('ember-lightpick-input')
-export default class LightpickComponent extends TextField {
-  field = null;
-
+export default class LightpickComponent extends Component {
   @computed
   get _config() {
     const config = getOwner(this).resolveRegistration('config:environment') || {};
@@ -303,13 +299,16 @@ export default class LightpickComponent extends TextField {
     return options;
   }
 
-  _initializeOptions() {
-    this.field = this.element;
+  @action
+  _initializeOptions(element) {
+    this.field = element;
+
     this._setupLightpick();
   }
 
   _setupLightpick() {
     this.picker = new Lightpick(this._options);
+
     this._setMomentLocale();
     this._setLightpickDate();
   }
@@ -348,11 +347,14 @@ export default class LightpickComponent extends TextField {
     }
   }
 
+  @action
   _updateOptions() {
     this._setMomentLocale();
+
     this.picker.reloadOptions(this._options);
   }
 
+  @action
   _destroyOptions() {
     this.picker.destroy();
   }
