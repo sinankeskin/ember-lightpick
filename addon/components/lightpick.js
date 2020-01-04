@@ -31,7 +31,7 @@ export default class LightpickComponent extends Component {
     return config['ember-lightpick'] || {};
   }
 
-  @computed('_config', 'args')
+  @computed('_config')
   get _options() {
     const options = this._defaultOptions();
 
