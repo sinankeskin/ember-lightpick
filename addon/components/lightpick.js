@@ -1,4 +1,3 @@
-/* eslint-disable ember/no-attrs-in-components */
 /* globals Lightpick */
 import { getOwner } from '@ember/application';
 import { assign } from '@ember/polyfills';
@@ -32,7 +31,7 @@ export default class LightpickComponent extends Component {
     return config['ember-lightpick'] || {};
   }
 
-  @computed('_config', 'attrs')
+  @computed('_config', 'args')
   get _options() {
     const options = this._defaultOptions();
 
@@ -292,8 +291,8 @@ export default class LightpickComponent extends Component {
     const options = {};
 
     defaults.forEach(option => {
-      if (isPresent(get(this.attrs, option))) {
-        options[option] = get(this.attrs, option);
+      if (isPresent(get(this.args, option))) {
+        options[option] = get(this.args, option);
       }
     });
 
@@ -315,7 +314,7 @@ export default class LightpickComponent extends Component {
   }
 
   _setMomentLocale() {
-    const lang = this.attrs.lang;
+    const lang = this.args.lang;
 
     if (isPresent(lang) && lang !== 'auto') {
       moment.locale(lang);
@@ -323,20 +322,20 @@ export default class LightpickComponent extends Component {
   }
 
   _setLightpickDate() {
-    const singleDate = this.attrs.singleDate;
+    const singleDate = this.args.singleDate;
 
     if (isPresent(singleDate)) {
       if (singleDate) {
-        const value = this.attrs.value;
+        const value = this.args.value;
 
         if (isPresent(value)) {
           this.picker.setDate(value);
         }
       } else {
-        const startDate = this.attrs.startDate;
+        const startDate = this.args.startDate;
 
         if (isPresent(startDate)) {
-          const endDate = this.attrs.endDate;
+          const endDate = this.args.endDate;
 
           if (isPresent(endDate)) {
             this.picker.setDateRange(startDate, endDate);
