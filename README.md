@@ -22,7 +22,7 @@ Installation
 ember install ember-lightpick
 ```
 
-If you use sass and update your version to >= 1.0.4 simply run,
+If you are using sass and you have version >= 1.0.4 simply run,
 
 ```
 ember install ember-lightpick
