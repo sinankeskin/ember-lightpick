@@ -117,7 +117,7 @@ ENV['moment'] = {
 Default configuration
 
 ``` handlebars
-<Lightpick @onSelect={{action "onSelect"}} />
+<Lightpick @onSelect={{fn this.onSelect}} />
 ```
 
 All default configuration parameters
@@ -166,14 +166,14 @@ All default configuration parameters
       tooltip=(hash one="day" other="days")
       tooltipOnDisabled=null
   }},
-  @onSelect={{action "onSelect"}},
-  @onSelectStart={{action "onSelectStart"}},
-  @onSelectEnd={{action "onSelectEnd"}},
-  @onOpen={{action "onOpen"}},
-  @onClose={{action "onClose"}},
-  @onError={{action "onError"}},
-  @onMonthsChange={{action "onMonthsChange"}},
-  @onYearsChange={{action "onYearsChange"}}
+  @onSelect={{fn this.onSelect}},
+  @onSelectStart={{fn this.onSelectStart}},
+  @onSelectEnd={{fn this.onSelectEnd}},
+  @onOpen={{fn this.onOpen}},
+  @onClose={{fn this.onClose}},
+  @onError={{fn this.onError}},
+  @onMonthsChange={{fn this.onMonthsChange}},
+  @onYearsChange={{fn this.onYearsChange}}
 />
 ```
 
