@@ -122,7 +122,7 @@ Default configuration
 
 All default configuration parameters
 
-> If singleDate is true you can set a value with @value parameter.
+> If singleDate is true you can set a value with value parameter. NOTICE: @value parameter dropped. Only value (without @ symbol) parameter is valid now.
 > If singleDate is false you can set start date and end date with @startDate and @endDate parameters.
 
 ``` handlebars

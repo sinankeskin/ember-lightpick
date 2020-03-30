@@ -1,6 +1,9 @@
 # Changelog
 All notable changes will be documented in this file.
 
+[2.2.0] - 2020-03-31
+* @value parameter dropped. Only value parameter is valid now.
+
 [2.0.0] - 2020-01-04
 * Upgrade to Ember Octane
 

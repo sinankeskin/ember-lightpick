@@ -2,7 +2,7 @@
 import { getOwner } from '@ember/application';
 import { assign } from '@ember/polyfills';
 import { action, computed, get } from '@ember/object';
-import { isPresent } from '@ember/utils';
+import { isPresent, isEqual } from '@ember/utils';
 import moment from 'moment';
 import Component from '@glimmer/component';
 
@@ -329,7 +329,7 @@ export default class LightpickComponent extends Component {
   _setMomentLocale() {
     const lang = this.args.lang;
 
-    if (isPresent(lang) && lang !== 'auto') {
+    if (isPresent(lang) && !isEqual(lang, 'auto')) {
       moment.locale(lang);
     }
   }
@@ -338,15 +338,7 @@ export default class LightpickComponent extends Component {
     const singleDate = this.args.singleDate;
 
     if (isPresent(singleDate)) {
-      if (singleDate) {
-        const value = this.args.value;
-
-        if (isPresent(value)) {
-          this.picker.setDate(value);
-        } else {
-          this.picker.setDate(null);
-        }
-      } else {
+      if (isEqual(singleDate, false)) {
         const startDate = this.args.startDate;
 
         if (isPresent(startDate)) {
