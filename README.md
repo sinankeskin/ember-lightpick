@@ -127,37 +127,39 @@ All default configuration parameters
 
 ``` handlebars
 <Lightpick
-  @secondField={{null}},
-  @firstDay={{1}},
+  id="foo"
+  class="form-control"
+  value={{null}}
+  @secondField={{null}}
+  @firstDay={{1}}
   @parentEl="body",
   @lang="auto",
   @format="DD/MM/YYYY",
   @separator=" - ",
-  @numberOfMonths={{1}},
-  @numberOfColumns={{2}},
-  @singleDate={{true}},
-  @autoclose={{true}},
-  @repick={{false}},
-  @value={{null}},
-  @startDate={{null}},
-  @endDate={{null}},
-  @minDate={{null}},
-  @maxDate={{null}},
-  @disableDates={{null}},
-  @selectForward={{false}},
-  @selectBackward={{false}},
-  @minDays={{null}},
-  @maxDays={{null}},
-  @hoveringTooltip={{true}},
-  @hideOnBodyClick={{true}},
-  @footer={{false}},
-  @disabledDatesInRange={{true}},
-  @tooltipNights={{false}},
-  @orientation={{"auto"}},
-  @disableWeekends={{false}},
-  @inline={{false}},
+  @numberOfMonths={{1}}
+  @numberOfColumns={{2}}
+  @singleDate={{true}}
+  @autoclose={{true}}
+  @repick={{false}}
+  @startDate={{null}}
+  @endDate={{null}}
+  @minDate={{null}}
+  @maxDate={{null}}
+  @disableDates={{null}}
+  @selectForward={{false}}
+  @selectBackward={{false}}
+  @minDays={{null}}
+  @maxDays={{null}}
+  @hoveringTooltip={{true}}
+  @hideOnBodyClick={{true}}
+  @footer={{false}}
+  @disabledDatesInRange={{true}}
+  @tooltipNights={{false}}
+  @orientation={{"auto"}}
+  @disableWeekends={{false}}
+  @inline={{false}}
   @weekdayStyle="short",
-  @dropdowns={{hash years=(hash min=1900 max= null) months=true}},
+  @dropdowns={{hash years=(hash min=1900 max= null) months=true}}
   @locale={{hash buttons=(hash prev="&leftarrow;"
                                 next="&rightarrow;"
                                 close="&times;"
@@ -165,14 +167,14 @@ All default configuration parameters
                                 apply="Apply")
       tooltip=(hash one="day" other="days")
       tooltipOnDisabled=null
-  }},
-  @onSelect={{fn this.onSelect}},
-  @onSelectStart={{fn this.onSelectStart}},
-  @onSelectEnd={{fn this.onSelectEnd}},
-  @onOpen={{fn this.onOpen}},
-  @onClose={{fn this.onClose}},
-  @onError={{fn this.onError}},
-  @onMonthsChange={{fn this.onMonthsChange}},
+  }}
+  @onSelect={{fn this.onSelect}}
+  @onSelectStart={{fn this.onSelectStart}}
+  @onSelectEnd={{fn this.onSelectEnd}}
+  @onOpen={{fn this.onOpen}}
+  @onClose={{fn this.onClose}}
+  @onError={{fn this.onError}}
+  @onMonthsChange={{fn this.onMonthsChange}}
   @onYearsChange={{fn this.onYearsChange}}
 />
 ```
