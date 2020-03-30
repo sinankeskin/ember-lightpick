@@ -309,6 +309,7 @@ export default class LightpickComponent extends Component {
   @action
   _updateOptions() {
     this._setMomentLocale();
+    this._setLightpickDate();
 
     this.picker.reloadOptions(this._options);
   }
@@ -342,6 +343,8 @@ export default class LightpickComponent extends Component {
 
         if (isPresent(value)) {
           this.picker.setDate(value);
+        } else {
+          this.picker.setDate(null);
         }
       } else {
         const startDate = this.args.startDate;
@@ -354,6 +357,8 @@ export default class LightpickComponent extends Component {
           } else {
             this.picker.setDateRange(startDate, null);
           }
+        } else {
+          this.picker.setDateRange(null, null);
         }
       }
     }
