@@ -1,6 +1,8 @@
 ember-lightpick
 ==============================================================================
 
+# WARNING: Unmaintained in favor of [ember-litepicker](https://github.com/sinankeskin/ember-litepicker)
+
 Ember addon for [Lightpick](https://wakirin.github.io/Lightpick/) date range picker library.
 [ember-cli-moment-shim](https://github.com/jasonmit/ember-cli-moment-shim) is used in the background so it is added as NPM dependencies to your application.
 
